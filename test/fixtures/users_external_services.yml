@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 1
-  external_service_id: 1
+  user: one
+  external_service: one
   external_mail: MyString
 
 two:
-  user_id: 1
-  external_service_id: 1
+  user: one
+  external_service: two
   external_mail: MyString

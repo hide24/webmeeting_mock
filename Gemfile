@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'rexml', '~> 3.2', '>= 3.2.4'
 gem 'zeitwerk', '2.5.4'
+gem 'net-smtp'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
