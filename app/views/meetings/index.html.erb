@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Meetings</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">External service</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Start at</th>
+      <th scope="col">End at</th>
+      <th scope="col">Extras</th>
+      <th colspan="3" scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meetings.each do |meeting| %>
+      <tr>
+        <td class="align-middle"><%= meeting.user_id %></td>
+        <td class="align-middle"><%= meeting.external_service_id %></td>
+        <td class="align-middle"><%= meeting.title %></td>
+        <td class="align-middle"><%= meeting.description %></td>
+        <td class="align-middle"><%= meeting.start_at %></td>
+        <td class="align-middle"><%= meeting.end_at %></td>
+        <td class="align-middle"><%= meeting.extras %></td>
+        <td class="align-middle"><%= link_to 'Show', meeting, class: "btn btn-outline-primary btn-sm" %></td>
+        <td class="align-middle"><%= link_to 'Edit', edit_meeting_path(meeting), class: "btn btn-outline-secondary btn-sm" %></td>
+        <td class="align-middle"><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Meeting', new_meeting_path, class: "btn btn-primary" %>

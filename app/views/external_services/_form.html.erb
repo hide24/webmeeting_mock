@@ -1,0 +1,33 @@
+<%= form_with(model: external_service) do |form| %>
+  <% if external_service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(external_service.errors.count, "error") %> prohibited this external_service from being saved:</h2>
+
+      <ul>
+        <% external_service.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :service_name, class: "form-label" %>
+    <%= form.text_field :service_name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.check_box :enabled, class: "form-check-input" %>
+    <%= form.label :enabled, class: "form-check-label" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :extras, class: "form-label" %>
+    <%= form.text_area :extras, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to 'Back', external_services_path, class: "btn btn-outline-secondary" %>
+  </div>
+<% end %>

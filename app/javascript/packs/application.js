@@ -4,5 +4,6 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
+import "../stylesheets/application"
 
 Rails.start()

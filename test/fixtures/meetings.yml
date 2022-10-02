@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  external_service_id: 1
+  title: MyString
+  description: MyText
+  start_at: 2022-10-02 05:49:50
+  end_at: 2022-10-02 05:49:50
+  extras: MyText
+
+two:
+  user_id: 1
+  external_service_id: 1
+  title: MyString
+  description: MyText
+  start_at: 2022-10-02 05:49:50
+  end_at: 2022-10-02 05:49:50
+  extras: MyText

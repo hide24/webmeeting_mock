@@ -1,0 +1,53 @@
+<%= form_with(model: meeting) do |form| %>
+  <% if meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+
+      <ul>
+        <% meeting.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :user_id, class: "form-label" %>
+    <%= form.number_field :user_id, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :external_service_id, class: "form-label" %>
+    <%= form.number_field :external_service_id, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :start_at, class: "form-label" %>
+    <%= form.datetime_select :start_at %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :end_at, class: "form-label" %>
+    <%= form.datetime_select :end_at %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :extras, class: "form-label" %>
+    <%= form.text_area :extras, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to 'Back', meetings_path, class: "btn btn-outline-secondary" %>
+  </div>
+<% end %>

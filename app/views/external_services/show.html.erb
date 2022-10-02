@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<dl class="row">
+  <dt class="col-sm-2">Service name:</dt>
+  <dd class="col-sm-10"><%= @external_service.service_name %></dd>
+
+  <dt class="col-sm-2">Enabled:</dt>
+  <dd class="col-sm-10"><%= @external_service.enabled %></dd>
+
+  <dt class="col-sm-2">Extras:</dt>
+  <dd class="col-sm-10"><%= @external_service.extras %></dd>
+</dl>
+
+<%= link_to 'Edit', edit_external_service_path(@external_service), class: "btn btn-primary" %> 
+<%= link_to 'Back', external_services_path, class: "btn btn-outline-secondary" %>

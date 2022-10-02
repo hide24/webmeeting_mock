@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<dl class="row">
+  <dt class="col-sm-2">User:</dt>
+  <dd class="col-sm-10"><%= link_to @users_external_service.user.display_name, @users_external_service.user %></dd>
+
+  <dt class="col-sm-2">External service:</dt>
+  <dd class="col-sm-10"><%= link_to @users_external_service.external_service.service_name, @users_external_service.external_service %></dd>
+
+  <dt class="col-sm-2">External mail:</dt>
+  <dd class="col-sm-10"><%= @users_external_service.external_mail %></dd>
+</dl>
+
+<%= link_to 'Edit', edit_users_external_service_path(@users_external_service), class: "btn btn-primary" %> 
+<%= link_to 'Back', users_external_services_path, class: "btn btn-outline-secondary" %>
