@@ -41,6 +41,11 @@
     <%= form.text_area :extras, class: "form-control" %>
   </div>
 
+  <div class="mb-3">
+    <%= form.label :user_ids, class: "form-label" %>
+    <%= form.text_field :user_ids, class: "form-control" %>
+  </div>
+
   <div class="actions">
     <%= form.submit class: "btn btn-primary" %>
     <%= link_to 'Back', meetings_path, class: "btn btn-outline-secondary" %>

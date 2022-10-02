@@ -17,7 +17,7 @@ class MeetingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create meeting" do
     assert_difference('Meeting.count') do
-      post meetings_url, params: { meeting: { description: @meeting.description, end_at: @meeting.end_at, external_service_id: @meeting.external_service_id, extras: @meeting.extras, start_at: @meeting.start_at, title: @meeting.title, user_id: @meeting.user_id } }
+      post meetings_url, params: { meeting: { description: @meeting.description, end_at: @meeting.end_at, external_service_id: @meeting.external_service_id, extras: @meeting.extras, start_at: @meeting.start_at, title: @meeting.title, user_ids: @meeting.user_ids } }
     end
 
     assert_redirected_to meeting_url(Meeting.last)
@@ -34,7 +34,7 @@ class MeetingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update meeting" do
-    patch meeting_url(@meeting), params: { meeting: { description: @meeting.description, end_at: @meeting.end_at, external_service_id: @meeting.external_service_id, extras: @meeting.extras, start_at: @meeting.start_at, title: @meeting.title, user_id: @meeting.user_id } }
+    patch meeting_url(@meeting), params: { meeting: { description: @meeting.description, end_at: @meeting.end_at, external_service_id: @meeting.external_service_id, extras: @meeting.extras, start_at: @meeting.start_at, title: @meeting.title, user_ids: @meeting.user_ids } }
     assert_redirected_to meeting_url(@meeting)
   end
 

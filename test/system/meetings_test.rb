@@ -20,7 +20,7 @@ class MeetingsTest < ApplicationSystemTestCase
     fill_in "Extras", with: @meeting.extras
     fill_in "Start at", with: @meeting.start_at
     fill_in "Title", with: @meeting.title
-    fill_in "User", with: @meeting.user_id
+    fill_in "User", with: @meeting.user_ids
     click_on "Create Meeting"
 
     assert_text "Meeting was successfully created"
@@ -37,7 +37,7 @@ class MeetingsTest < ApplicationSystemTestCase
     fill_in "Extras", with: @meeting.extras
     fill_in "Start at", with: @meeting.start_at
     fill_in "Title", with: @meeting.title
-    fill_in "User", with: @meeting.user_id
+    fill_in "User", with: @meeting.user_ids
     click_on "Update Meeting"
 
     assert_text "Meeting was successfully updated"

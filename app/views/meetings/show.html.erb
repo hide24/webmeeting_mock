@@ -8,7 +8,7 @@
   <dd class="col-sm-10"><%= @meeting.title %></dd>
 
   <dt class="col-sm-2">Description:</dt>
-  <dd class="col-sm-10"><%= @meeting.Description %></dd>
+  <dd class="col-sm-10"><%= @meeting.description %></dd>
 
   <dt class="col-sm-2">Start at:</dt>
   <dd class="col-sm-10"><%= @meeting.start_at %></dd>
@@ -17,7 +17,10 @@
   <dd class="col-sm-10"><%= @meeting.end_at %></dd>
 
   <dt class="col-sm-2">Extras:</dt>
-  <dd class="col-sm-10"><%= @meeting.Extras %></dd>
+  <dd class="col-sm-10"><%= @meeting.extras %></dd>
+
+  <dt class="col-sm-2">Users:</dt>
+  <dd class="col-sm-10"><%= @meeting.users.map(&:display_name).join(',') %></dd>
 </dl>
 
 <%= link_to 'Edit', edit_meeting_path(@meeting), class: "btn btn-primary" %> 

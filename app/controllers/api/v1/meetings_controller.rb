@@ -45,6 +45,6 @@ class Api::V1::MeetingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meeting_params
-      params.require(:meeting).permit(:user_id, :external_service_id, :title, :description, :start_at, :end_at, :extras)
+      params.require(:meeting).permit(:user_ids, :external_service_id, :title, :description, :start_at, :end_at, :extras)
     end
 end
