@@ -3,7 +3,7 @@ class Api::V1::ExternalServicesController < ApplicationController
 
   # GET /api/v1/external_services
   def index
-    @external_services = ExternalService.all
+    @external_services = ExternalService.where(enabled: true).order(service_name: :asc).all
   end
 
   # GET /api/v1/external_services/1

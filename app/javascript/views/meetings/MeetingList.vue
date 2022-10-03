@@ -47,7 +47,7 @@
                 @click="editButton(item.id)"
               >
                 <v-icon>
-                  mdi-calendar-edit-outline
+                  mdi-file-document-edit-outline
                 </v-icon>
                 Edit
               </v-btn>
@@ -55,7 +55,7 @@
             <td>
               <v-btn
                 rounded
-                color="danger"
+                color="error"
                 @click="deleteButton(item.id)"
               >
                 <v-icon>

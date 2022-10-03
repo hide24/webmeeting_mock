@@ -3,7 +3,7 @@ class Api::V1::MeetingsController < ApplicationController
 
   # GET /api/v1/meetings
   def index
-    @meetings = Meeting.all
+    @meetings = Meeting.order(start_at: :asc).all
   end
 
   # GET /api/v1/meetings/1
@@ -12,6 +12,8 @@ class Api::V1::MeetingsController < ApplicationController
 
   # POST /api/v1/meetings
   def create
+    sleep(3)
+
     @meeting = Meeting.new(meeting_params)
 
     if @meeting.save
@@ -23,6 +25,8 @@ class Api::V1::MeetingsController < ApplicationController
 
   # PATCH/PUT /api/v1/meetings/1
   def update
+    sleep(3)
+
     if @meeting.update(meeting_params)
       render :show, status: :ok, location: @meeting
     else
@@ -32,6 +36,8 @@ class Api::V1::MeetingsController < ApplicationController
 
   # DELETE /api/v1/meetings/1
   def destroy
+    sleep(3)
+
     @meeting.destroy
 
     head :no_content

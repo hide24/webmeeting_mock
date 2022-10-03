@@ -3,7 +3,7 @@ class ExternalServicesController < ApplicationController
 
   # GET /external_services or /external_services.json
   def index
-    @external_services = ExternalService.all
+    @external_services = ExternalService.order(service_name: :asc).all
   end
 
   # GET /external_services/1 or /external_services/1.json
