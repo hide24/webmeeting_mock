@@ -24,3 +24,5 @@ dip rails s
 
 http://localhost:3000
 で動作確認
+
+「参加者リストを編集」の先は未実装

@@ -6,7 +6,7 @@
           rounded
           color="primary"
           small
-          @click="openNewDialog"
+          @click=""
         >
           <v-icon>mdi-account</v-icon>
           参加者リストを編集
