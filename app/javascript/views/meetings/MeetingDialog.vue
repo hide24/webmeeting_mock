@@ -63,6 +63,7 @@
                 :items="userItems"
                 v-model="meeting.user_ids"
                 @change="changeMember"
+                ref="userSelect"
               ></v-autocomplete>
             </v-col>
           </v-row>
@@ -169,6 +170,9 @@
       @addEvent="addUser"
       @cancelEvent="addUserCanceled"
     ></add-user-dialog>
+    <account-link-dialog ref="accountLinkDialog"
+      @cancelEvent="addUserCanceled"
+    ></account-link-dialog>
   </div>
 </template>
 
@@ -178,9 +182,10 @@ import VueTimepicker from 'vue2-timepicker'
 import 'vue2-timepicker/dist/VueTimepicker.css'
 
 import AddUserDialog from './AddUserDialog.vue'
+import AccountLinkDialog from './AccountLinkDialog.vue'
 
 export default {
-  components: { VueTimepicker, AddUserDialog },
+  components: { VueTimepicker, AddUserDialog, AccountLinkDialog },
   props: {
     services: {
       type: Array,
@@ -264,7 +269,17 @@ export default {
     changeMember(e) {
       if(Array.isArray(e) && e.find(i => i < 0)) {
         const service = this.services[this.tab]
+        this.$refs.userSelect.menuIsActive = false
         this.$refs.addUserDialog.open(service)
+      } else if (Array.isArray(e)) {
+        const selectedUsers = this.users.filter(u => e.includes(u.id))
+        const service = this.services[this.tab]
+        selectedUsers.forEach(user => {
+          if(user.another_mail) {
+            this.$refs.userSelect.menuIsActive = false
+            this.$refs.accountLinkDialog.open(user, service)
+          }
+        })
       }
     },
     addUser(uid) {
