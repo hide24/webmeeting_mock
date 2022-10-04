@@ -1,13 +1,23 @@
-# Rails6 and Vue2 application skelton
+# 某web会議予約システムのユーザー選択まわりのモック
 
 ## About
 
-```
-rails webpacker:install:vue
-```
+西川さん向け
 
-が一部Vue3のパッケージをインストールしてしまうのでVue2のバージョンで固定したスケルトン
+Ruby(3.1.1推奨)とdocker-composeが動く環境で
 
-* Ruby 3.1.1
-* Rails 6.1.4.6
-* Vue 2.6.14
+dipをインストール
+```
+gem install dip
+```
+して、
+```
+dip provision
+dip rails db:seed
+dip rails s
+```
+ぐらいで動くんじゃないかな。
+動くといいな。
+
+http://localhost:3000
+で動作確認
