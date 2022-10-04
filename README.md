@@ -12,6 +12,9 @@ gem install dip
 ```
 して、
 ```
+dip compose build
+dip bundle install
+dip yarn install --check-files
 dip provision
 dip rails db:seed
 dip rails s
