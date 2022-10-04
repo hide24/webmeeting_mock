@@ -36,6 +36,11 @@
     <%= form.label :guest, class: "form-check-label" %>
   </div>
 
+  <div class="mb-3">
+    <%= form.check_box :another_mail, class: "form-check-input" %>
+    <%= form.label :another_mail, class: "form-check-label" %>
+  </div>
+
   <div class="actions">
     <%= form.submit class: "btn btn-primary" %>
     <%= link_to 'Back', users_path, class: "btn btn-outline-secondary" %>

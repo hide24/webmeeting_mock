@@ -1,7 +1,16 @@
 <template>
   <v-container>
     <v-row justify="end">
-      <v-col cols="2">
+      <v-col cols="4">
+        <v-btn
+          rounded
+          color="primary"
+          small
+          @click="openNewDialog"
+        >
+          <v-icon>mdi-account</v-icon>
+          参加者リストを編集
+        </v-btn>
         <v-btn
           rounded
           color="success"
@@ -9,7 +18,7 @@
           @click="openNewDialog"
         >
           <v-icon>mdi-plus</v-icon>
-          Add a meeting
+          会議予定を追加
         </v-btn>
       </v-col>
     </v-row>
@@ -56,14 +65,20 @@
 
       </v-col>
     </v-row>
-    <meeting-dialog ref="dialog" :services="services" :currentService="currentService" @sendMeeting="reciveMeeting"></meeting-dialog>
+    <meeting-dialog ref="dialog"
+      :services="services"
+      :currentService="currentService"
+      :users="users"
+      @sendMeeting="reciveMeeting"
+      @addUser="updateUsers"
+    ></meeting-dialog>
     <delete-dialog ref="confirm" @deleteMeeting="deleteMeeting"></delete-dialog>
   </v-container>
 </template>
 
 <script>
 import dayjs from 'dayjs'
-import { MeetingApi, ExternalServiceApi } from 'services/ApiService'
+import { MeetingApi, ExternalServiceApi, UserApi } from 'services/ApiService'
 
 import MeetingList from './MeetingList.vue'
 import MeetingDialog from './MeetingDialog.vue'
@@ -75,11 +90,12 @@ export default {
     return {
       meetings: [],
       selectedTab: null,
-      tabs: ['schedule', 'past'],
+      tabs: ['今後の予定', '完了'],
       loading: false,
       services: [],
       currentService: null,
       day: '',
+      users: [],
     }
   },
   computed: {
@@ -103,7 +119,13 @@ export default {
       ExternalServiceApi.getAll()
       .then( response => {
         this.services = response.data
-        this.currentService = this.services[1].service_name
+        this.currentService = this.services[0].id
+      })
+    },
+    updateUsers() {
+      UserApi.getAll()
+      .then(response =>{
+        this.users = response.data
       })
     },
     openNewDialog() {
@@ -117,6 +139,7 @@ export default {
       this.$refs.confirm.open(meetingId)
     },
     reciveMeeting(meeting) {
+      this.currentService = meeting.external_service_id
       if(meeting.id) {
         this.updateMeeting(meeting)
       } else {
@@ -163,6 +186,7 @@ export default {
   mounted() {
     this.updateMeetings()
     this.updateServices()
+    this.updateUsers()
   },
 }
 </script>

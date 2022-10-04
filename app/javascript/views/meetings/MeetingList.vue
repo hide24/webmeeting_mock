@@ -4,16 +4,16 @@
         <thead>
           <tr>
             <th class="text-left">
-              Title
+              タイトル
             </th>
             <th class="text-left">
-              Start at
+              開始日時
             </th>
             <th class="text-left">
-              End at
+              終了日時
             </th>
-            <th class="text-left">
-              Operations
+            <th class="text-left" colspan="3">
+              操作
             </th>
           </tr>
         </thead>
@@ -37,7 +37,7 @@
                 <v-icon>
                   mdi-play
                 </v-icon>
-                Start
+                開始
               </v-btn>
             </td>
             <td>
@@ -49,7 +49,7 @@
                 <v-icon>
                   mdi-file-document-edit-outline
                 </v-icon>
-                Edit
+                編集
               </v-btn>
             </td>
             <td>
@@ -61,7 +61,7 @@
                 <v-icon>
                   mdi-trash-can-outline
                 </v-icon>
-                Delete
+                削除
               </v-btn>
             </td>
           </tr>

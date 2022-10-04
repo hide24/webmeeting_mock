@@ -6,6 +6,7 @@ one:
   surname: MyString
   mail: MyString
   guest: false
+  another_mail: false
 
 two:
   display_name: MyString
@@ -13,3 +14,4 @@ two:
   surname: MyString
   mail: MyString
   guest: false
+  another_mail: false

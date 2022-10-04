@@ -7,11 +7,11 @@
     >
       <v-card>
         <v-card-title class="text-h5 grey lighten-2">
-          Delete a metting
+          会議の削除
         </v-card-title>
 
         <v-card-text>
-          Are you sure?
+          会議の登録を削除します。よろしいですか?
         </v-card-text>
 
         <v-divider></v-divider>
@@ -23,14 +23,14 @@
             tile
             @click="dialog = false"
           >
-            Cancel
+            キャンセル
           </v-btn>
           <v-btn
             color="error"
             tile
             @click="sendMeeting"
           >
-            Delete
+            削除
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -39,29 +39,29 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        meetingId: null,
-        dialog: false,
-      }
+export default {
+  data() {
+    return {
+      meetingId: null,
+      dialog: false,
+    }
+  },
+  computed: {
+  },
+  methods: {
+    open(meetingId) {
+      this.meetingId = meetingId
+      this.dialog = true
     },
-    computed: {
+    close() {
+      this.dialog = false
     },
-    methods: {
-      open(meetingId) {
-        this.meetingId = meetingId
-        this.dialog = true
-      },
-      close() {
-        this.dialog = false
-      },
-      sendMeeting() {
-        this.$emit('deleteMeeting', this.meetingId)
-        this.close()
-      },
+    sendMeeting() {
+      this.$emit('deleteMeeting', this.meetingId)
+      this.close()
     },
-  }
+  },
+}
 </script>
 
 <style scoped>

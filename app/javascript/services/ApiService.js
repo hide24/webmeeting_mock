@@ -51,11 +51,11 @@ export const UserApi = {
     return axios.get(UserApi.endPoint + id)
   },
   create(data) {
-    return axios.post(UserApi.endPoint, {meeting: data})
+    return axios.post(UserApi.endPoint, {user: data})
   },
   update(data) {
     let id = data.id
-    return axios.put(UserApi.endPoint + id, {meeting: data}) 
+    return axios.put(UserApi.endPoint + id, {user: data}) 
   },
   delete(id) {
     return axios.delete(UserApi.endPoint + id)
