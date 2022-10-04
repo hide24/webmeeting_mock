@@ -223,7 +223,7 @@ export default {
   methods: {
     open(meeting) {
       this.meeting = meeting || {}
-      this.meeting.user_ids = this.meeting.uids
+      this.meeting.user_ids = this.meeting.uids || []
       this.startDate = null
       this.startTime = '00:00'
       this.priod = '00:00'
