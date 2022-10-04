@@ -44,11 +44,11 @@
               <div class="h5">
                 参加者
                 <v-btn
-                  small
+                  x-small
                   color="blue lighten-4"
-                  class="ml-2"
+                  class="ml-2 mb-1"
                   @click="selectAllUsers"
-                >このプロジェクトのメンバー全員</v-btn>
+                >このプロジェクトのメンバー全員を追加</v-btn>
               </div>
 
               <v-autocomplete
