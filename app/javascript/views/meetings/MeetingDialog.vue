@@ -269,14 +269,14 @@ export default {
     changeMember(e) {
       if(Array.isArray(e) && e.find(i => i < 0)) {
         const service = this.services[this.tab]
-        this.$refs.userSelect.menuIsActive = false
+        this.$refs.userSelect.blur()
         this.$refs.addUserDialog.open(service)
       } else if (Array.isArray(e)) {
         const selectedUsers = this.users.filter(u => e.includes(u.id))
         const service = this.services[this.tab]
         selectedUsers.forEach(user => {
           if(user.another_mail) {
-            this.$refs.userSelect.menuIsActive = false
+            this.$refs.userSelect.blur()
             this.$refs.accountLinkDialog.open(user, service)
           }
         })
