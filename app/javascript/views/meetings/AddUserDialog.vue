@@ -124,6 +124,7 @@ export default {
       this.user = {guest: true}
       this.service = service
       this.dialog = true
+      this.externalLink = false
     },
     close() {
       this.dialog = false
