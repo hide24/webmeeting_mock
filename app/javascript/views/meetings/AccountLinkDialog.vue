@@ -12,7 +12,7 @@
 
         <v-card-text>
           {{ user.display_name }}の{{ service.service_name }}アカウントとの連携に失敗しました。
-          {{ service.service_name }}アカウント名を入力するか「{{ service.service_name }}をゲストとして利用する」を選択してください。
+          {{ user.display_name }}の{{ service.service_name }}アカウント名を入力するか「{{ service.service_name }}をゲストとして利用する」を選択してください。
 
           <v-row dense class="mt-2">
             <v-col
@@ -36,6 +36,7 @@
             >
             <v-btn
               text
+              @click="close"
             >{{ service.service_name }}をゲストとして利用する</v-btn>
             </v-col>
           </v-row>

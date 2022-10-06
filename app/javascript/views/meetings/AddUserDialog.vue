@@ -43,6 +43,42 @@
             </v-col>
           </v-row>
 
+          <v-row v-if="externalLink"
+            dense
+            class="mt-2"
+          >
+            {{ user.display_name }}の{{ service.service_name }}アカウントとの連携に失敗しました。
+            {{ user.display_name }}の{{ service.service_name }}アカウント名を入力するか「{{ service.service_name }}をゲストとして利用する」を選択してください。
+
+            <v-row dense class="mt-2">
+              <v-col
+                cols="12"
+              >
+                <div class="h5">{{ service.service_name }}アカウント名</div>
+
+                <v-text-field
+                  dense
+                  outlined
+                  autofocus
+                  v-model="extraAccount"
+                ></v-text-field>
+              </v-col>
+            </v-row>
+
+            <v-row dense>
+              <v-col
+                cols="12"
+                text
+              >
+              <v-btn
+                text
+                @click="addUser"
+              >{{ service.service_name }}をゲストとして利用する</v-btn>
+              </v-col>
+            </v-row>
+
+          </v-row>
+
         </v-card-text>
 
         <v-divider></v-divider>
@@ -57,7 +93,7 @@
             キャンセル
           </v-btn>
           <v-btn
-            color="error"
+            color="primary"
             tile
             @click="addUser"
           >
@@ -77,6 +113,7 @@ export default {
     return {
       user: {guest: true},
       service: {},
+      externalLink: false,
       dialog: false,
     }
   },
@@ -85,12 +122,17 @@ export default {
   methods: {
     open(service) {
       this.user = {guest: true}
+      this.service = service
       this.dialog = true
     },
     close() {
       this.dialog = false
     },
     addUser() {
+      if(!this.externalLink) {
+        this.externalLink = true
+        return
+      }
       UserApi.create(this.user)
       .then(response => {
         const newUser = response.data
